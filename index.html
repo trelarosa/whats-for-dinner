@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinner Decider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- CRT scanline overlay -->
+  <div class="crt-overlay"></div>
+
+  <header>
+    <h1 class="title glitch" data-text="DINNER DECIDER">DINNER DECIDER</h1>
+    <p class="subtitle">INSERT PREFERENCES TO CONTINUE...</p>
+  </header>
+
+  <main>
+    <!-- Alignment Meter -->
+    <div class="alignment-section">
+      <div class="alignment-label">ALIGNMENT METER</div>
+      <div class="alignment-bar-container">
+        <div class="alignment-bar" id="alignmentBar">
+          <div class="alignment-fill" id="alignmentFill"></div>
+        </div>
+        <div class="alignment-value" id="alignmentValue">---%</div>
+      </div>
+      <div class="alignment-description" id="alignmentDesc">Set your preferences to see alignment</div>
+    </div>
+
+    <!-- Side-by-side panels -->
+    <div class="panels">
+      <!-- Player 1: You -->
+      <div class="panel player1">
+        <div class="panel-header">
+          <span class="player-badge">P1</span>
+          <h2>YOU</h2>
+        </div>
+        <div class="panel-body">
+          <div class="control-group">
+            <label>MEAL TYPE</label>
+            <div class="button-group" data-field="mealType" data-player="1">
+              <button data-value="breakfast">Breakfast</button>
+              <button data-value="lunch">Lunch</button>
+              <button data-value="dinner">Dinner</button>
+              <button data-value="snack">Snack</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>TIME AVAILABLE</label>
+            <div class="button-group" data-field="time" data-player="1">
+              <button data-value="15">15 min</button>
+              <button data-value="30">30 min</button>
+              <button data-value="60">1 hr</button>
+              <button data-value="90">1.5 hr+</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>MOOD</label>
+            <div class="button-group" data-field="mood" data-player="1">
+              <button data-value="comfort">Comfort</button>
+              <button data-value="healthy">Healthy</button>
+              <button data-value="adventurous">Adventure</button>
+              <button data-value="indulgent">Indulgent</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>EFFORT LEVEL</label>
+            <div class="button-group" data-field="effort" data-player="1">
+              <button data-value="none">Zero</button>
+              <button data-value="low">Low</button>
+              <button data-value="medium">Medium</button>
+              <button data-value="high">Full Send</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>CUISINE</label>
+            <div class="button-group cuisine-grid" data-field="cuisine" data-player="1">
+              <button data-value="american">American</button>
+              <button data-value="italian">Italian</button>
+              <button data-value="mexican">Mexican</button>
+              <button data-value="asian">Asian</button>
+              <button data-value="mediterranean">Mediterr.</button>
+              <button data-value="indian">Indian</button>
+              <button data-value="any">Any</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>BUDGET</label>
+            <div class="button-group" data-field="budget" data-player="1">
+              <button data-value="cheap">$</button>
+              <button data-value="moderate">$$</button>
+              <button data-value="fancy">$$$</button>
+              <button data-value="any">Any</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>DIETARY</label>
+            <div class="button-group multi" data-field="dietary" data-player="1">
+              <button data-value="none">None</button>
+              <button data-value="vegetarian">Veggie</button>
+              <button data-value="vegan">Vegan</button>
+              <button data-value="glutenfree">GF</button>
+              <button data-value="dairyfree">DF</button>
+              <button data-value="lowcarb">Low Carb</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="vs-divider">
+        <span>VS</span>
+      </div>
+
+      <!-- Player 2: Jess -->
+      <div class="panel player2">
+        <div class="panel-header">
+          <span class="player-badge">P2</span>
+          <h2>JESS</h2>
+        </div>
+        <div class="panel-body">
+          <div class="control-group">
+            <label>MEAL TYPE</label>
+            <div class="button-group" data-field="mealType" data-player="2">
+              <button data-value="breakfast">Breakfast</button>
+              <button data-value="lunch">Lunch</button>
+              <button data-value="dinner">Dinner</button>
+              <button data-value="snack">Snack</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>TIME AVAILABLE</label>
+            <div class="button-group" data-field="time" data-player="2">
+              <button data-value="15">15 min</button>
+              <button data-value="30">30 min</button>
+              <button data-value="60">1 hr</button>
+              <button data-value="90">1.5 hr+</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>MOOD</label>
+            <div class="button-group" data-field="mood" data-player="2">
+              <button data-value="comfort">Comfort</button>
+              <button data-value="healthy">Healthy</button>
+              <button data-value="adventurous">Adventure</button>
+              <button data-value="indulgent">Indulgent</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>EFFORT LEVEL</label>
+            <div class="button-group" data-field="effort" data-player="2">
+              <button data-value="none">Zero</button>
+              <button data-value="low">Low</button>
+              <button data-value="medium">Medium</button>
+              <button data-value="high">Full Send</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>CUISINE</label>
+            <div class="button-group cuisine-grid" data-field="cuisine" data-player="2">
+              <button data-value="american">American</button>
+              <button data-value="italian">Italian</button>
+              <button data-value="mexican">Mexican</button>
+              <button data-value="asian">Asian</button>
+              <button data-value="mediterranean">Mediterr.</button>
+              <button data-value="indian">Indian</button>
+              <button data-value="any">Any</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>BUDGET</label>
+            <div class="button-group" data-field="budget" data-player="2">
+              <button data-value="cheap">$</button>
+              <button data-value="moderate">$$</button>
+              <button data-value="fancy">$$$</button>
+              <button data-value="any">Any</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>DIETARY</label>
+            <div class="button-group multi" data-field="dietary" data-player="2">
+              <button data-value="none">None</button>
+              <button data-value="vegetarian">Veggie</button>
+              <button data-value="vegan">Vegan</button>
+              <button data-value="glutenfree">GF</button>
+              <button data-value="dairyfree">DF</button>
+              <button data-value="lowcarb">Low Carb</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decide Button -->
+    <div class="decide-section">
+      <button class="decide-btn" id="decideBtn">
+        <span class="btn-text">DECIDE FOR US</span>
+        <span class="btn-subtext">PRESS START</span>
+      </button>
+    </div>
+
+    <!-- Result Area -->
+    <div class="result-section" id="resultSection">
+      <div class="result-box" id="resultBox">
+        <div class="result-header">TONIGHT'S VERDICT</div>
+        <div class="result-meal" id="resultMeal"></div>
+        <div class="result-description" id="resultDesc"></div>
+        <div class="result-tags" id="resultTags"></div>
+        <button class="reroll-btn" id="rerollBtn">RE-ROLL</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DINNER DECIDER &bull; NO MORE ARGUING</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
